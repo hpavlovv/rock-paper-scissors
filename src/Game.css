@@ -1,0 +1,63 @@
+
+
+.Gamestart {
+    text-align: center;
+    height: 100vh;
+    background: lightblue;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.heading {
+    font-size: 50px;
+    margin: 0;
+    
+}
+
+.score {
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.choice {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.computer-hand {
+    width: 250px;
+}
+
+.user-hand {
+    width: 250px;
+    transform: rotateY(180deg);
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background: coral;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    padding: 50px;
+}
