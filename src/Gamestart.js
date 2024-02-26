@@ -11,17 +11,17 @@ const Gamestart = () => {
     const [gameOver, setGameOver] = useState(false);
 
     const choices = ['rock', 'paper', 'scissors'];
-
+// user making a choice.
     const handleOnClick = (choice) => {
         setUserChoice(choice)
         generateComputerChoice()
     }
-
+// computer making a choice.
     const generateComputerChoice = () => {
         const randomChoice = choices[Math.floor(Math.random() * choices.length)]
         setComputerChoice(randomChoice)
     }
-
+// resetting the game.
     const reset = () => {
         window.location.reload()
     }
@@ -29,6 +29,7 @@ const Gamestart = () => {
     useEffect(() => {
         const comboMoves = userChoice + computerChoice
         if (userPoints <= 4 && computerPoints <= 4) {
+ // when the user gets a point or wins.           
             if (comboMoves === 'rockscissors' || comboMoves === 'paperrock' || comboMoves === 'scissorspaper') {
                 const updatedUserPoints = userPoints + 1 
                 setUserPoints(updatedUserPoints)
@@ -38,7 +39,7 @@ const Gamestart = () => {
                     setResult('User wins!')
                 }
             }
-
+// when the computer gets a point or wins.
             if (comboMoves === 'paperscissors' || comboMoves === 'scissorsrock' || comboMoves === 'rockpaper') {
                 const updatedComputerPoints = computerPoints + 1
                 setComputerPoints(updatedComputerPoints)
@@ -48,7 +49,7 @@ const Gamestart = () => {
                     setResult('Computer wins!')
                 }
             }
-
+// when its a draw.
             if(comboMoves === 'rockrock' || comboMoves === 'paperpaper' || comboMoves === 'scissorsscissors') {
                 setTurnResult('Noone got a point')
             }
@@ -70,7 +71,7 @@ const Gamestart = () => {
                 <img className='computer-hand' src={`../images/${computerChoice}.png`} />
             </div>
         </div>
-
+{/* Inputs the choice made and disables buttons when the game is over. */}
         <div children='button-div'>
             {choices.map((choice, index) =>
              <button className='button' key={index} onClick={() => handleOnClick(choice)} disabled={gameOver}>
@@ -83,7 +84,7 @@ const Gamestart = () => {
             <h1> Turn Result: {turnResult}</h1>
             <h1> Final Result: {result}</h1>
         </div>
-
+{/* Condition when 'gameOver' is true. Restart game button appears.  */}
         <div className='button-div'>
             {gameOver && 
             <button className='button' onClick={() => reset()} > Restart Game</button>}
